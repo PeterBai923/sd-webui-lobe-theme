@@ -1,7 +1,6 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => {
-  const prefix = `${prefixCls}-highlighter`;
+export const useStyles = createStyles(({ css, token, cx, stylish }) => {
   return {
     container: css`
       pointer-events: none;
@@ -37,23 +36,6 @@ export const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) =
         color: ${token.colorTextTertiary};
 
         border-radius: ${token.borderRadius};
-      `,
-    ),
-    shiki: cx(
-      `${prefix}-shiki`,
-      css`
-        margin: 0;
-
-        .shiki {
-          overflow-x: auto;
-          padding: 0;
-          background: none !important;
-
-          code,
-          code span {
-            font-family: ${token.fontFamilyCode} !important;
-          }
-        }
       `,
     ),
   };
