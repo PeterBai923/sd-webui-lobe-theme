@@ -6,11 +6,9 @@
 import type { SelectProps } from 'antd';
 
 import defualtLocaleOptions from '@/../locales/options.json';
-import { version } from '@/../package.json';
 
 import type { WebuiSetting } from './initialState';
 
-export const DEFAULT_VERSION: string = version;
 export const DEFAULT_LOCALE_OPTIONS: SelectProps['options'] = defualtLocaleOptions;
 export const getSetting = async(): Promise<WebuiSetting | undefined> => {
   const res = await fetch('/lobe/config');
@@ -29,12 +27,6 @@ export const postSetting = async(setting: WebuiSetting) => {
   });
 };
 
-export const getVersion = async(): Promise<string> => {
-  const res = await fetch('/lobe/package');
-  const data = (await res.json()) as any;
-  if (!data || data.empty || !data.version) return DEFAULT_VERSION;
-  return data.version;
-};
 
 interface PromptData {
   [key: string]: {

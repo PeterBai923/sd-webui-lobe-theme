@@ -1,4 +1,4 @@
-import { Header as H, Tooltip } from '@lobehub/ui';
+import { Header as H } from '@lobehub/ui';
 import { useTheme } from 'antd-style';
 import { memo } from 'react';
 
@@ -11,9 +11,8 @@ import Actions from './Actions';
 import Nav from './Nav';
 
 const Header = memo<DivProps>(({ children }) => {
-  const { themeMode, version } = useAppStore((st) => ({
+  const { themeMode } = useAppStore((st) => ({
     themeMode: st.themeMode,
-    version: st.version,
   }));
   const theme = useTheme();
 
@@ -28,9 +27,7 @@ const Header = memo<DivProps>(({ children }) => {
           style={{ alignItems: 'center', color: theme.colorText, display: 'flex' }}
           target="_blank"
         >
-          <Tooltip title={`LobeTheme v${version}`}>
-            <Logo />
-          </Tooltip>
+          <Logo />
         </a>
       }
       nav={

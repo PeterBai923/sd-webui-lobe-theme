@@ -1,6 +1,6 @@
 import type { StateCreator } from 'zustand/vanilla';
 
-import { getLocaleOptions, getSetting, getVersion, postSetting } from './api';
+import { getLocaleOptions, getSetting, postSetting } from './api';
 import { DEFAULT_SETTING, type WebuiSetting } from './initialState';
 import type { Store } from './store';
 
@@ -10,7 +10,6 @@ export interface StoreAction {
   onInit: () => void;
   onLoadLocalOptions: () => void;
   onLoadSetting: () => void;
-  onLoadVersion: () => void;
   onSetSetting: (setting: Partial<WebuiSetting>) => void;
   onSetThemeMode: (themeMode: 'light' | 'dark') => void;
   setCurrentTab: () => void;
@@ -22,9 +21,8 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
 ) => ({
   onInit: async() => {
     set(() => ({ loading: true }), false, 'onInit');
-    const { onLoadSetting, onLoadVersion, onLoadLocalOptions } = get();
+    const { onLoadSetting, onLoadLocalOptions } = get();
     await onLoadLocalOptions();
-    await onLoadVersion();
     await onLoadSetting();
     set(() => ({ loading: false }), false, 'onInit');
   },
@@ -68,10 +66,6 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
     set(() => ({ setting }), false, 'onLoadSetting');
     console.log('🤯 [setting] loaded');
     console.table(setting);
-  },
-  onLoadVersion: async() => {
-    const version = await getVersion();
-    set(() => ({ version }), false, 'onLoadVersion');
   },
   onSetSetting: async(setting) => {
     const oldSetting = get().setting;

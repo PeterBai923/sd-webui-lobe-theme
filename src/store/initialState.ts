@@ -6,7 +6,7 @@
 import type { SelectProps } from 'antd';
 
 import type { NeutralColor, PrimaryColor } from '@/features/Setting/data';
-import { DEFAULT_LOCALE_OPTIONS, DEFAULT_VERSION } from '@/store/api';
+import { DEFAULT_LOCALE_OPTIONS } from '@/store/api';
 import type { I18n } from '@/types';
 
 export interface WebuiSetting {
@@ -73,7 +73,6 @@ export interface StroeState {
   localeOptions: SelectProps['options'];
   setting: WebuiSetting;
   themeMode: 'light' | 'dark';
-  version: string;
 }
 
 export const initialState: StroeState = {
@@ -82,5 +81,4 @@ export const initialState: StroeState = {
   localeOptions: DEFAULT_LOCALE_OPTIONS,
   setting: DEFAULT_SETTING,
   themeMode: 'dark',
-  version: DEFAULT_VERSION,
 };
