@@ -22,7 +22,6 @@ export default defineConfig({
   build: {
     cssMinify: true,
     emptyOutDir: true,
-    minify: 'terser',
     outDir: './javascript',
     rollupOptions: {
       input: resolve(__dirname, 'src/main.tsx'),
@@ -30,6 +29,7 @@ export default defineConfig({
         assetFileNames: `[name].[ext]`,
         chunkFileNames: `[name].js`,
         entryFileNames: `[name].js`,
+        format: 'iife',
       },
     },
   },
@@ -51,7 +51,7 @@ export default defineConfig({
     },
     !isProduction && {
       configureServer: (server) => {
-        server.middlewares.use(async (_request, res, next): Promise<void> => {
+        server.middlewares.use(async(_request, res, next): Promise<void> => {
           if (
             _request.originalUrl === '/dev' ||
             _request.originalUrl === '/dev?__theme=dark' ||

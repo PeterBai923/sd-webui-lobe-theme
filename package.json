@@ -26,7 +26,7 @@
     "javascript"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "set NODE_ENV=production && vite build",
     "ci": "npm run lint && npm run type-check",
     "dev": "vite",
     "dev:sd": "cd ../../ && ./webui.sh",
