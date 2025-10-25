@@ -1,3 +1,8 @@
+/*
+ * @Author: Peter_Bai
+ * @Date: 2024-12-14 12:51:03
+ * @KKDY保佑代码无BUG!:
+ */
 import type { SelectProps } from 'antd';
 
 import type { NeutralColor, PrimaryColor } from '@/features/Setting/data';
@@ -64,7 +69,6 @@ export const DEFAULT_SETTING: WebuiSetting = {
 
 export interface StroeState {
   currentTab: string;
-  latestVersion: string;
   loading: boolean;
   localeOptions: SelectProps['options'];
   setting: WebuiSetting;
@@ -74,7 +78,6 @@ export interface StroeState {
 
 export const initialState: StroeState = {
   currentTab: 'tab_txt2img',
-  latestVersion: DEFAULT_VERSION,
   loading: true,
   localeOptions: DEFAULT_LOCALE_OPTIONS,
   setting: DEFAULT_SETTING,

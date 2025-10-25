@@ -1,9 +1,12 @@
+/*
+ * @Author: Peter_Bai
+ * @Date: 2024-12-14 12:32:28
+ * @KKDY保佑代码无BUG!:
+ */
 import type { SelectProps } from 'antd';
-import semver from 'semver';
 
 import defualtLocaleOptions from '@/../locales/options.json';
 import { version } from '@/../package.json';
-import { GITHUB_REPO_URL } from '@/const/url';
 
 import type { WebuiSetting } from './initialState';
 
@@ -65,14 +68,3 @@ export const getLocaleOptions = async(): Promise<SelectProps['options']> => {
   return data;
 };
 
-export const getLatestVersion = async(): Promise<string> => {
-  const res = await fetch(
-    `https://api.github.com/repos/${GITHUB_REPO_URL.replace(
-      'https://github.com/',
-      '',
-    )}/releases/latest`,
-  );
-  const data = (await res.json()) as any;
-  if (!data || !data.tag_name) return DEFAULT_VERSION;
-  return semver.clean(data.tag_name as string) || DEFAULT_VERSION;
-};

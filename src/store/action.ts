@@ -1,7 +1,7 @@
 import { consola } from 'consola';
 import type { StateCreator } from 'zustand/vanilla';
 
-import { getLatestVersion, getLocaleOptions, getSetting, getVersion, postSetting } from './api';
+import { getLocaleOptions, getSetting, getVersion, postSetting } from './api';
 import { DEFAULT_SETTING, type WebuiSetting } from './initialState';
 import type { Store } from './store';
 
@@ -9,7 +9,6 @@ export const SETTING_KEY = 'SD-LOBE-SETTING';
 export const FALLBACK_SETTING_KEY = 'SD-KITCHEN-SETTING';
 export interface StoreAction {
   onInit: () => void;
-  onLoadLatestVersion: () => void;
   onLoadLocalOptions: () => void;
   onLoadSetting: () => void;
   onLoadVersion: () => void;
@@ -24,16 +23,11 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
 ) => ({
   onInit: async() => {
     set(() => ({ loading: true }), false, 'onInit');
-    const { onLoadSetting, onLoadVersion, onLoadLatestVersion, onLoadLocalOptions } = get();
+    const { onLoadSetting, onLoadVersion, onLoadLocalOptions } = get();
     await onLoadLocalOptions();
     await onLoadVersion();
-    await onLoadLatestVersion();
     await onLoadSetting();
     set(() => ({ loading: false }), false, 'onInit');
-  },
-  onLoadLatestVersion: async() => {
-    const latestVersion = await getLatestVersion();
-    set(() => ({ latestVersion }), false, 'onLoadLatestVersion');
   },
   onLoadLocalOptions: async() => {
     const localeOptions = await getLocaleOptions();
