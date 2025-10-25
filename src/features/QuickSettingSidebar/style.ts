@@ -17,8 +17,6 @@ export const useStyles = createStyles(
         align-items: stretch;
         justify-content: stretch;
 
-        width: 100%;
-
         > * {
           flex: 1;
 
