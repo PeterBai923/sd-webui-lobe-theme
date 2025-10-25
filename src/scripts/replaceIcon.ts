@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import {
   ArchiveRestore,
   ArrowDown,
@@ -95,5 +94,5 @@ export default () => {
     replaceIcon(a, ['❮'], ArrowLeft, 36);
     replaceIcon(a, ['❯'], ArrowRight, 36);
   }
-  consola.success('🤯 [svgIcon] replace');
+  console.log('🤯 [svgIcon] replace');
 };

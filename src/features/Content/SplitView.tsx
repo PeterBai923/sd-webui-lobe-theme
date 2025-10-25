@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { memo, useEffect } from 'react';
 
 const Preview = memo(() => {
@@ -35,9 +34,9 @@ const Preview = memo(() => {
         extrasPreview.prepend(extrasGenerate);
       }
 
-      consola.success('🤯 [layout] inject - Split Previewer');
+      console.log('🤯 [layout] inject - Split Previewer');
     } catch (error) {
-      consola.error('🤯 [layout] inject - Split Previewer', error);
+      console.error('🤯 [layout] inject - Split Previewer', error);
     }
   }, []);
 

@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import type { StateCreator } from 'zustand/vanilla';
 
 import { getLocaleOptions, getSetting, getVersion, postSetting } from './api';
@@ -38,14 +37,14 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
     const webuiSetting: any = await getSetting();
 
     if (webuiSetting) {
-      consola.start('🤯 [setting] loaded webui setting');
+      console.log('🤯 [setting] loaded webui setting');
       themeSetting = webuiSetting;
     }
 
     if (!themeSetting) {
       const localSetting: any = localStorage.getItem(SETTING_KEY);
       if (localSetting) {
-        consola.info('🤯 [setting] loaded local setting');
+        console.info('🤯 [setting] loaded local setting');
         themeSetting = JSON.parse(localSetting);
       }
     }
@@ -53,13 +52,13 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
     if (!themeSetting) {
       const fallbackLocalSetting: any = localStorage.getItem(FALLBACK_SETTING_KEY);
       if (fallbackLocalSetting) {
-        consola.info('🤯 [setting] loaded fallback local setting');
+        console.info('🤯 [setting] loaded fallback local setting');
         themeSetting = JSON.parse(fallbackLocalSetting);
       }
     }
 
     if (!themeSetting) {
-      consola.info('🤯 [setting] loaded default setting');
+      console.info('🤯 [setting] loaded default setting');
       themeSetting = DEFAULT_SETTING;
     }
 
@@ -67,7 +66,7 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
 
     await postSetting(setting);
     set(() => ({ setting }), false, 'onLoadSetting');
-    consola.success('🤯 [setting] loaded');
+    console.log('🤯 [setting] loaded');
     console.table(setting);
   },
   onLoadVersion: async() => {
@@ -86,7 +85,7 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
   },
   setCurrentTab: () => {
     const currentTab = get_uiCurrentTabContent()?.id;
-    consola.info('🤯 [tab] onChange', currentTab);
+    console.info('🤯 [tab] onChange', currentTab);
     if (currentTab && currentTab !== get().currentTab) {
       set({ currentTab }, false, 'setCurrentTab');
     }

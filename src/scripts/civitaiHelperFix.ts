@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { isNumber } from 'lodash-es';
 
 const TAB_PREFIX_LIST = ['txt2img', 'img2img'] as const;
@@ -252,7 +251,7 @@ export default () => {
     const fnClick = () => setTimeout(helperFix, 500);
     let retryTimes = 0;
     const fixInterval = setInterval(() => {
-      consola.info('🤯 [civitai helper] update card for civitai');
+      console.info('🤯 [civitai helper] update card for civitai');
       const checkDom = document.querySelector('#txt2img_lora_cards') as any;
       if (checkDom || retryTimes > 5) {
         if (checkDomCurrent !== checkDom) {

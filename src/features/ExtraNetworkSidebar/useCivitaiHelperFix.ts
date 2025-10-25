@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { useEffect, useRef, useState } from 'react';
 
 import civitaiHelperFix from '@/scripts/civitaiHelperFix';
@@ -46,7 +45,7 @@ export const useCivitaiHelperFix = ({
         }, timeout);
       } catch (error: any) {
         setIsLoading(false);
-        if (debug) consola.success(`🤯 ${debug}`, error);
+        if (debug) console.log(`🤯 ${debug}`, error);
       }
     }
 
@@ -54,7 +53,7 @@ export const useCivitaiHelperFix = ({
     isInject.current = true;
 
     setIsLoading(false);
-    if (debug) consola.success(`🤯 ${debug}`);
+    if (debug) console.log(`🤯 ${debug}`);
 
     return () => {
       if (timoutFn) clearTimeout(timoutFn);

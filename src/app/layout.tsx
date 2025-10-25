@@ -1,5 +1,4 @@
 import { useCdnFn } from '@lobehub/ui';
-import { consola } from 'consola';
 import { PropsWithChildren, Suspense, memo, useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -35,7 +34,7 @@ export const Layout = memo<PropsWithChildren>(({ children }) => {
     onInit();
     onUiLoaded(() => {
       setLoading(false);
-      consola.success('🤯 Lobe Theme loading');
+      console.log('🤯 Lobe Theme loading');
     });
     onUiTabChange(() => {
       setCurrentTab();

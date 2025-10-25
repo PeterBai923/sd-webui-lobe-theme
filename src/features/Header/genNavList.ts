@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { startCase } from 'lodash-es';
 
 const getNavTabs = (): HTMLDivElement[] =>
@@ -20,7 +19,7 @@ interface NavItem {
 export const genNavList = (): NavItem[] => {
   const navList = getNavTabs();
   const buttons = getNavButtons();
-  consola.debug('🤯 [nav] generate nav list');
+  console.debug('🤯 [nav] generate nav list');
   return buttons.map((button, index) => {
     const id = navList[index].id;
     return {

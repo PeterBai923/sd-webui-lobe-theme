@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { createRoot } from 'react-dom/client';
 
 import Page from './app/page';
@@ -11,7 +10,7 @@ if (!skipLoad) {
   document.addEventListener(
     'DOMContentLoaded',
     () => {
-      consola.start(`🤯 Lobe Theme load in ${process.env.NODE_ENV}`);
+      console.log(`🤯 Lobe Theme load in ${process.env.NODE_ENV}`);
       const root = document.createElement('div');
       root.setAttribute('id', 'root');
       try {

@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { type FC, memo, useCallback, useEffect, useState } from 'react';
 import { WithContext, ReactTagsProps as WithContextProps } from 'react-tag-input';
 
@@ -89,13 +88,13 @@ const TagList = memo<TagListProps>(({ tags, setTags, type, setValue }) => {
             setBind(true);
             addAutocompleteToArea(inputDom);
             clearInterval(bindInterval);
-            consola.success('🤯 [promptTagEditor] inject');
+            console.log('🤯 [promptTagEditor] inject');
           }
         }
         retryTimes++;
       }, 1000);
     } catch (error) {
-      consola.error('🤯 [promptTagEditor]', error);
+      console.error('🤯 [promptTagEditor]', error);
     }
   }, [bind]);
 

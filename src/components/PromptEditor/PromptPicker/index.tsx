@@ -1,5 +1,4 @@
 import { Button, Skeleton } from 'antd';
-import { consola } from 'consola';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
@@ -30,7 +29,7 @@ const PromptPicker = memo(() => {
       if (textarea) setTags(data);
       return data;
     } catch (error) {
-      consola.error('🤯 [prompt]', error);
+      console.error('🤯 [prompt]', error);
     }
   }, []);
 
@@ -41,7 +40,7 @@ const PromptPicker = memo(() => {
       if (textarea) textarea.value = newValue;
       updateInput(textarea);
     } catch (error) {
-      consola.error('🤯 [prompt]', error);
+      console.error('🤯 [prompt]', error);
     }
   }, []);
 

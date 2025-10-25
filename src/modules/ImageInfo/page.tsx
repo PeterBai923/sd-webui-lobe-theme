@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -27,8 +26,8 @@ export default () => {
   try {
     ImageInfo('#html_info_txt2img', '#lobe_html_info_txt2img');
     ImageInfo('#html_info_img2img', '#lobe_html_info_img2img');
-    consola.success('🤯 [module] inject - ImageInfo');
+    console.log('🤯 [module] inject - ImageInfo');
   } catch (error) {
-    consola.error('🤯 [module] inject - ImageInfo', error);
+    console.error('🤯 [module] inject - ImageInfo', error);
   }
 };

@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -37,8 +36,8 @@ export default () => {
     PromptHighlight('#txt2img_prompt', '#lobe_txt2img_prompt');
     PromptHighlight('#img2img_prompt', '#lobe_img2img_prompt');
     window.ignore_ids_for_localization['lobe_highlighter'] = 'SPAN';
-    consola.success('🤯 [module] inject - PromptHighlight');
+    console.log('🤯 [module] inject - PromptHighlight');
   } catch (error) {
-    consola.error('🤯 [module] inject - PromptHighlight', error);
+    console.error('🤯 [module] inject - PromptHighlight', error);
   }
 };

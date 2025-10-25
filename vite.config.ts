@@ -4,7 +4,6 @@
  * @KKDY保佑代码无BUG!:
  */
 import react from '@vitejs/plugin-react-swc';
-import { consola } from 'consola';
 import dotenv from 'dotenv';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
@@ -16,7 +15,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const SD_HOST = process.env.SD_HOST || '127.0.0.1';
 const SD_PORT = process.env.SD_PORT || 7960;
 
-consola.info('Proxy:', `http://${SD_HOST}:${SD_PORT}`);
+console.info('Proxy:', `http://${SD_HOST}:${SD_PORT}`);
 export default defineConfig({
   base: '/dev',
   build: {

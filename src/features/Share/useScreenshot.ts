@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import dayjs from 'dayjs';
 import { domToJpeg, domToPng, domToSvg, domToWebp } from 'modern-screenshot';
 import { useCallback, useState } from 'react';
@@ -44,7 +43,7 @@ export const useScreenshot = (imageType: ImageType = ImageType.JPG) => {
       link.click();
       setLoading(false);
     } catch (error) {
-      consola.error('🤯 Failed to download image', error);
+      console.error('🤯 Failed to download image', error);
       setLoading(false);
     }
   }, [imageType]);

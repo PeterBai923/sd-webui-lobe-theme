@@ -1,4 +1,3 @@
-import { consola } from 'consola';
 import { RefObject, useEffect, useRef, useState } from 'react';
 
 interface InjectOptions {
@@ -36,15 +35,15 @@ export const useInject = (
         onSuccess?.(ele);
         isInject.current = true;
         setIsLoading(false);
-        if (debug) consola.success(`🤯 ${debug}`);
+        if (debug) console.log(`🤯 ${debug}`);
       } else {
-        if (debug) consola.error(`🤯 ${debug}`, `Element not found for selector: ${selectors}`);
+        if (debug) console.error(`🤯 ${debug}`, `Element not found for selector: ${selectors}`);
       }
     } catch (error: any) {
       console.error(error);
       onError?.(error);
       setIsLoading(false);
-      if (debug) consola.error(`🤯 ${debug}`, error);
+      if (debug) console.error(`🤯 ${debug}`, error);
     }
   }, []);
   return {

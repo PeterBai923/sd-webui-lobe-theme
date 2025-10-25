@@ -1,4 +1,8 @@
-import { consola } from 'consola';
+/*
+ * @Author: Peter_Bai
+ * @Date: 2024-12-14 12:32:28
+ * @KKDY保佑代码无BUG!:
+ */
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
@@ -24,7 +28,7 @@ const Prompt = memo<PromptProps>(({ type }) => {
       const textarea = get_uiCurrentTabContent().querySelector(id) as HTMLTextAreaElement;
       if (textarea) setTags(formatPrompt(textarea.value));
     } catch (error) {
-      consola.error('🤯 [prompt]', error);
+      console.error('🤯 [prompt]', error);
     }
   }, []);
 
@@ -35,7 +39,7 @@ const Prompt = memo<PromptProps>(({ type }) => {
       if (textarea) textarea.value = newValue;
       updateInput(textarea);
     } catch (error) {
-      consola.error('🤯 [prompt]', error);
+      console.error('🤯 [prompt]', error);
     }
   }, [tags, type]);
 
@@ -45,7 +49,7 @@ const Prompt = memo<PromptProps>(({ type }) => {
       if (textarea) textarea.value = currentTags.map((t) => t.text).join(', ');
       updateInput(textarea);
     } catch (error) {
-      consola.error('🤯 [prompt]', error);
+      console.error('🤯 [prompt]', error);
     }
   }, []);
 
