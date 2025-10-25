@@ -38,9 +38,13 @@ const Brand = memo(() => {
 
   return (
     <Flexbox className={styles.container} gap={16}>
-      <a className={styles.logo} href={OFFICIAL_SITE}>
+      <div
+        className={styles.logo}
+        onClick={() => window.open(OFFICIAL_SITE, '_blank')}
+        style={{ cursor: 'pointer' }}
+      >
         <Logo type={'combine'} />
-      </a>
+      </div>
       <div>Empowering your AI dreams</div>
       <div className={styles.description}>{COPYRIGHT}</div>
       <Follow />

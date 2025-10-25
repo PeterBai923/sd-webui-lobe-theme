@@ -21,14 +21,18 @@ const Header = memo<DivProps>(({ children }) => {
       actions={<Actions themeMode={themeMode} />}
       actionsStyle={{ flex: 0 }}
       logo={
-        <a
-          href={OFFICIAL_SITE}
-          rel="noreferrer"
-          style={{ alignItems: 'center', color: theme.colorText, display: 'flex' }}
-          target="_blank"
+        <div
+          onClick={() => window.open(OFFICIAL_SITE, '_blank')}
+          style={{
+            alignItems: 'center',
+            color: theme.colorText,
+            cursor: 'pointer',
+            display: 'flex',
+            textDecoration: 'none',
+          }}
         >
           <Logo />
-        </a>
+        </div>
       }
       nav={
         <>
