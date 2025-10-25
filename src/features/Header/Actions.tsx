@@ -1,12 +1,16 @@
+/*
+ * @Author: Peter_Bai
+ * @Date: 2024-12-14 12:32:28
+ * @KKDY保佑代码无BUG!:
+ */
 import { ActionIcon } from '@lobehub/ui';
 import { Space } from 'antd';
 import { useResponsive } from 'antd-style';
-import { Github, LayoutGrid, LucideIcon, Moon, Settings, Sun } from 'lucide-react';
+import { LayoutGrid, LucideIcon, Moon, Settings, Sun } from 'lucide-react';
 import qs from 'query-string';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Giscus } from '@/components';
 import Setting from '@/features/Setting';
 import { selectors, useAppStore } from '@/store';
 
@@ -22,7 +26,6 @@ interface ActionsProps {
 
 const Actions = memo<ActionsProps>(() => {
   const [isSettingOpen, setIsSettingOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const themeMode = useAppStore(selectors.themeMode);
   const { mobile } = useResponsive();
   const { t } = useTranslation();
@@ -49,11 +52,6 @@ const Actions = memo<ActionsProps>(() => {
             >
               <ActionIcon icon={LayoutGrid} title="Cheat Sheet" />
             </a>
-            <ActionIcon
-              icon={Github}
-              onClick={() => setIsModalOpen(true)}
-              title={t('header.feedback')}
-            />
           </>
         )}
         <ActionIcon
@@ -68,7 +66,6 @@ const Actions = memo<ActionsProps>(() => {
         />
       </Space.Compact>
       <Setting onCancel={() => setIsSettingOpen(false)} open={isSettingOpen} />
-      <Giscus onCancel={() => setIsModalOpen(false)} open={isModalOpen} />
     </>
   );
 });
