@@ -1,3 +1,4 @@
+A lightweight Lobe Theme
 <a name="readme-top"></a>
 
 <div align="center">
@@ -39,9 +40,22 @@ English · [简体中文](./README.zh-CN.md) · [Changelog](./CHANGELOG.md) · [
 
 #### TOC
 
-- [👋🏻 Getting Started & Join Our Community](#-getting-started--join-our-community)
+- [👋🏻 Getting Started \& Join Our Community](#-getting-started--join-our-community)
 - [📦 Extension Installation](#-extension-installation)
+    - [`A` Installation via SD WebUI Extension Market](#a-installation-via-sd-webui-extension-market)
+    - [`B` Clone this Repository via Git (Recommended)](#b-clone-this-repository-via-git-recommended)
 - [✨ Feature Overview](#-feature-overview)
+    - [`1` Light \& Dark Theme](#1-light--dark-theme)
+    - [`2` Personalized Theme Customization](#2-personalized-theme-customization)
+    - [`3` Prompt Syntax Highlighting](#3-prompt-syntax-highlighting)
+    - [`4` Customizable Sidebar](#4-customizable-sidebar)
+    - [`5` Improved Image Information Display](#5-improved-image-information-display)
+    - [`6` Image Recipe Sharing](#6-image-recipe-sharing)
+    - [`7` Prompt Editor](#7-prompt-editor)
+    - [`8` Mobile-Friendly Adaptation](#8-mobile-friendly-adaptation)
+    - [`9` PWA Progressive Web Application](#9-pwa-progressive-web-application)
+    - [`10` Prompt Word Formatting](#10-prompt-word-formatting)
+    - [More Features](#more-features)
 - [🖥 Environment Support](#-environment-support)
 - [📦 Ecosystem](#-ecosystem)
 - [⌨️ Local Development](#️-local-development)
