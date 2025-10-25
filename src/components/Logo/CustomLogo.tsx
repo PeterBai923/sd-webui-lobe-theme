@@ -1,5 +1,4 @@
-import { FluentEmoji, Logo as LobeLogo } from '@lobehub/ui';
-import { getEmoji } from '@lobehub/fluent-emoji';
+import { Logo as LobeLogo } from '@lobehub/ui';
 import { Space } from 'antd';
 import { type CSSProperties, memo } from 'react';
 
@@ -17,10 +16,8 @@ const CustomLogo = memo<CustomLogoProps>(({ size = 32, style, logoCustomUrl, log
     if (logoCustomUrl.includes('http') || logoCustomUrl.includes('data')) {
       customLogo = <img alt="logo" src={logoCustomUrl} style={{ height: size, ...style }} />;
     } else {
-      const pureEmoji = getEmoji(logoCustomUrl);
-      if (pureEmoji) {
-        customLogo = <FluentEmoji emoji={pureEmoji} size={size} style={style} />;
-      }
+      // 移除表情符号检测和渲染逻辑
+      customLogo = <span style={{ fontSize: size, ...style }}>{logoCustomUrl}</span>;
     }
   }
 

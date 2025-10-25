@@ -1,8 +1,12 @@
+/*
+ * @Author: Peter_Bai
+ * @Date: 2024-12-14 12:32:28
+ * @KKDY保佑代码无BUG!:
+ */
 import react from '@vitejs/plugin-react-swc';
 import { consola } from 'consola';
 import dotenv from 'dotenv';
 import { resolve } from 'node:path';
-import * as process from 'node:process';
 import { defineConfig } from 'vite';
 
 dotenv.config();
@@ -10,7 +14,7 @@ dotenv.config();
 const isProduction = process.env.NODE_ENV === 'production';
 
 const SD_HOST = process.env.SD_HOST || '127.0.0.1';
-const SD_PORT = process.env.SD_PORT || 7860;
+const SD_PORT = process.env.SD_PORT || 7960;
 
 consola.info('Proxy:', `http://${SD_HOST}:${SD_PORT}`);
 export default defineConfig({
@@ -33,7 +37,7 @@ export default defineConfig({
     'process.env': process.env,
   },
   plugins: [
-    react({ devTarget: 'esnext', tsDecorators: true }),
+    react({ devTarget: 'es2022', tsDecorators: true }),
 
     !isProduction && {
       configureServer: (server) => {
@@ -47,7 +51,7 @@ export default defineConfig({
     },
     !isProduction && {
       configureServer: (server) => {
-        server.middlewares.use(async(_request, res, next): Promise<void> => {
+        server.middlewares.use(async (_request, res, next): Promise<void> => {
           if (
             _request.originalUrl === '/dev' ||
             _request.originalUrl === '/dev?__theme=dark' ||
