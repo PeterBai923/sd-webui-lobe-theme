@@ -5,9 +5,8 @@ import {
   DraggablePanelHeader,
   LayoutSidebarInner,
 } from '@lobehub/ui';
-import { useResponsive } from 'antd-style';
 import isEqual from 'fast-deep-equal';
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { selectors, useAppStore } from '@/store';
@@ -20,19 +19,14 @@ export interface QuickSettingSidebarProps extends DivProps {
 }
 
 const QuickSettingSidebar = memo<QuickSettingSidebarProps>(({ headerHeight }) => {
-  const { mobile } = useResponsive();
   const setting = useAppStore(selectors.currentSetting, isEqual);
-  const [expand, setExpand] = useState<boolean>(mobile ? false : setting.sidebarExpand);
+  const [expand, setExpand] = useState<boolean>(setting.sidebarExpand);
   const [pin, setPin] = useState<boolean>(setting.sidebarFixedMode === 'fixed');
   const [width, setWidth] = useState<number>(setting.sidebarWidth);
   const { styles, theme } = useStyles({ headerHeight, width });
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (mobile) setExpand(false);
-  }, [mobile]);
-
-  const mode = mobile ? 'fixed' : pin ? 'fixed' : 'float';
+  const mode = pin ? 'fixed' : 'float';
 
   return (
     <DraggablePanel

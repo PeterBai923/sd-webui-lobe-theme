@@ -1,4 +1,3 @@
-import { useResponsive } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { memo, useRef } from 'react';
 
@@ -12,7 +11,6 @@ import { useStyles } from './style';
 
 const Content = memo<DivProps>(({ className, ...props }) => {
   const mainReference = useRef<HTMLDivElement>(null);
-  const { mobile } = useResponsive();
   const setting = useAppStore(selectors.currentSetting, isEqual);
   const { cx, styles } = useStyles({
     isPromptResizable: setting.promptTextareaType === 'resizable',
@@ -40,7 +38,7 @@ const Content = memo<DivProps>(({ className, ...props }) => {
         {...props}
       />
 
-      {setting.layoutSplitPreview && mobile === false && <SplitView />}
+      {setting.layoutSplitPreview && <SplitView />}
     </>
   );
 });

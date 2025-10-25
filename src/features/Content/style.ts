@@ -4,7 +4,7 @@ const TEXT2IMG_PROMPT_HEIGHT = 74;
 const IMG2IMG_PROMPT_HEIGHT = 98;
 export const useStyles = createStyles(
   (
-    { css, token, stylish, isDarkMode, responsive },
+    { css, token, stylish, isDarkMode },
     {
       isPromptResizable,
       layoutSplitPreview,
@@ -108,11 +108,6 @@ export const useStyles = createStyles(
           display: none;
         }
 
-        ${responsive.mobile} {
-          .gradio-row:has([id$='2img_results'], [id$='2img_results']) {
-            flex-direction: column-reverse;
-          }
-        }
 
         .extra-networks {
           .tab-nav [id*='_extra_'] {

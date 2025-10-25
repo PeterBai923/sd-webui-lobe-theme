@@ -1,5 +1,9 @@
+/*
+ * @Author: Peter_Bai
+ * @Date: 2025-10-25 16:30:04
+ * @KKDY保佑代码无BUG!:
+ */
 import { Button, Popconfirm } from 'antd';
-import { useResponsive } from 'antd-style';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
@@ -8,7 +12,6 @@ import { DEFAULT_SETTING, useAppStore } from '@/store';
 
 const Footer = memo(() => {
   const { t } = useTranslation();
-  const { mobile } = useResponsive();
   const onSetSetting = useAppStore((st) => st.onSetSetting);
 
   const onReset = useCallback(() => {
@@ -16,7 +19,7 @@ const Footer = memo(() => {
     location.reload();
   }, []);
 
-  const buttonStyle = mobile ? { flex: 1 } : { margin: 0 };
+  const buttonStyle = { margin: 0 };
 
   return (
     <Flexbox flex={1} gap={12} horizontal justify={'flex-end'}>

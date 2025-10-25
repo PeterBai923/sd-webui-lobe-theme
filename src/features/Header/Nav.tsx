@@ -1,6 +1,10 @@
-import { Burger, TabsNav } from '@lobehub/ui';
-import { useResponsive } from 'antd-style';
-import { memo, useState } from 'react';
+/*
+ * @Author: Peter_Bai
+ * @Date: 2025-10-25 16:30:04
+ * @KKDY保佑代码无BUG!:
+ */
+import { TabsNav } from '@lobehub/ui';
+import { memo } from 'react';
 
 import { selectors, useAppStore } from '@/store';
 
@@ -8,12 +12,7 @@ import { useNavBar } from './useNavBar';
 
 const Nav = memo(() => {
   const currentTab = useAppStore(selectors.currentTab);
-  const { mobile } = useResponsive();
-  const { items, onChange } = useNavBar(mobile);
-  const [opened, setOpened] = useState(false);
-
-  if (mobile) return <Burger items={items} opened={opened} setOpened={setOpened} />;
-
+  const { items, onChange } = useNavBar();
   return <TabsNav activeKey={currentTab} items={items} onChange={onChange} />;
 });
 

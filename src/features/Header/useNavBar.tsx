@@ -5,7 +5,7 @@ import { useSelectorHide } from '@/hooks/useSelectorHide';
 
 import { genNavList, getNavButtons } from './genNavList';
 
-export const useNavBar = (mobile?: boolean) => {
+export const useNavBar = () => {
   const [items, setItems] = useState<TabsNavProps['items']>([]);
   const navList = useMemo(() => genNavList(), []);
   const onChange: TabsNavProps['onChange'] = useCallback(
@@ -23,7 +23,7 @@ export const useNavBar = (mobile?: boolean) => {
       const list: TabsNavProps['items'] = navList.map((item) => {
         return {
           key: item.id,
-          label: mobile ? <div onClick={() => onChange(item.id)}>{item.label}</div> : item.label,
+          label: item.label,
         };
       });
       setItems(list.filter(Boolean));
@@ -31,7 +31,7 @@ export const useNavBar = (mobile?: boolean) => {
     } catch (error) {
       console.error('🤯 [layout] inject - Header', error);
     }
-  }, [mobile]);
+  }, []);
   return {
     items,
     onChange,

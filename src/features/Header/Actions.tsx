@@ -5,7 +5,6 @@
  */
 import { ActionIcon } from '@lobehub/ui';
 import { Space } from 'antd';
-import { useResponsive } from 'antd-style';
 import { LayoutGrid, LucideIcon, Moon, Settings, Sun } from 'lucide-react';
 import qs from 'query-string';
 import { memo, useCallback, useState } from 'react';
@@ -27,7 +26,6 @@ interface ActionsProps {
 const Actions = memo<ActionsProps>(() => {
   const [isSettingOpen, setIsSettingOpen] = useState(false);
   const themeMode = useAppStore(selectors.themeMode);
-  const { mobile } = useResponsive();
   const { t } = useTranslation();
 
   const handleSetTheme = useCallback(() => {
@@ -40,20 +38,16 @@ const Actions = memo<ActionsProps>(() => {
   return (
     <>
       <Space.Compact>
-        {!mobile && (
-          <>
-            <a href="https://civitai.com/" rel="noreferrer" target="_blank">
-              <ActionIcon icon={CivitaiLogo} title="Civitai" />
-            </a>
-            <a
-              href="https://supagruen.github.io/StableDiffusion-CheatSheet/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <ActionIcon icon={LayoutGrid} title="Cheat Sheet" />
-            </a>
-          </>
-        )}
+        <a href="https://civitai.com/" rel="noreferrer" target="_blank">
+          <ActionIcon icon={CivitaiLogo} title="Civitai" />
+        </a>
+        <a
+          href="https://supagruen.github.io/StableDiffusion-CheatSheet/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <ActionIcon icon={LayoutGrid} title="Cheat Sheet" />
+        </a>
         <ActionIcon
           icon={themeMode === 'light' ? Sun : Moon}
           onClick={handleSetTheme}

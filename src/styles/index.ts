@@ -15,7 +15,6 @@ import progress from './components/progress';
 import slider from './components/slider';
 import table from './components/table';
 import tabs from './components/tabs';
-import mobile from './mobile';
 import tokens from './tokens';
 
 const GlobalStyle = createGlobalStyle(({ theme }) => [
@@ -35,7 +34,6 @@ const GlobalStyle = createGlobalStyle(({ theme }) => [
   popup(theme),
   extensions(theme),
   lightboxModal(theme),
-  mobile(),
 ]);
 
 export default GlobalStyle;
